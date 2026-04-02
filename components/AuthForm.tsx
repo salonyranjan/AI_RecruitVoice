@@ -16,10 +16,11 @@ import {
 import { auth } from "@/firebase/client"; 
 import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
-import { signIn, signUp } from "@/lib/actions/auth.action";
+
+// Changed to relative path to resolve the Turbopack build error
+import { signIn, signUp } from "../lib/actions/auth.action";
 import FormField from "./FormField";
 
-// Define the type to prevent "FormType not found"
 type FormType = "sign-in" | "sign-up";
 
 const authFormSchema = (type: FormType) => {
@@ -157,10 +158,6 @@ const AuthForm = ({ type }: { type: FormType }) => {
         </p>
       </div>
     </div>
-  );
-};
-
-export default AuthForm;
   );
 };
 
