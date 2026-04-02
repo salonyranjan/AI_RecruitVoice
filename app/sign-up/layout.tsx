@@ -1,8 +1,7 @@
 import { ReactNode } from "react";
 import { redirect } from "next/navigation";
 
-// Use a relative path to ensure Turbopack finds the file
-import { isAuthenticated } from "../../lib/actions/auth.action";
+import { isAuthenticated } from "../../lib/actions/auth.action"; // Adjust the path as needed
 
 const AuthLayout = async ({ children }: { children: ReactNode }) => {
   // Check authentication status

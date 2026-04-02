@@ -17,7 +17,6 @@ import { Form } from "./ui/form";
 import { Button } from "./ui/button"; 
 import FormField from "./FormField"; 
 
-// Only one dot level up since we are in /components/
 import { signIn, signUp } from "../lib/actions/auth.action";
 
 type FormType = "sign-in" | "sign-up";
