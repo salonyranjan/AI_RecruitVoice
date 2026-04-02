@@ -12,27 +12,13 @@ import {
   signInWithEmailAndPassword 
 } from "firebase/auth";
 
-<<<<<<< HEAD
-// Check these paths carefully for case-sensitivity!
 import { auth } from "@/firebase/client"; 
-import { Form } from "@/components/ui/form";
-import { Button } from "@/components/ui/button";
+import { Form } from "./ui/form"; 
+import { Button } from "./ui/button"; 
+import FormField from "./FormField"; 
 
-// Changed to relative path to resolve the Turbopack build error
+// Only one dot level up since we are in /components/
 import { signIn, signUp } from "../lib/actions/auth.action";
-import FormField from "./FormField";
-=======
-// Corrected Imports based on your specific UI folder structure
-import { auth } from "@/firebase/client"; 
-import { Form } from "./ui/form"; // Same folder as AuthForm.tsx  
-import { Button } from "./ui/button"; // Same folder as AuthForm.tsx
-import FormField from "./FormField"; // Same folder as AuthForm.tsx
-
-// Go UP two levels to reach the root lib folder
-import { signIn, signUp } from "../lib/actions/auth.action";
-
-type FormType = "sign-in" | "sign-up";
->>>>>>> e6c6a49 (Fix file structure and auth action paths)
 
 type FormType = "sign-in" | "sign-up";
 
@@ -94,11 +80,7 @@ const AuthForm = ({ type }: { type: FormType }) => {
       }
     } catch (error: any) {
       console.error(error);
-<<<<<<< HEAD
       toast.error(error.message || "An unexpected error occurred");
-=======
-      toast.error(error.message || "An error occurred");
->>>>>>> e6c6a49 (Fix file structure and auth action paths)
     }
   };
 
@@ -109,17 +91,10 @@ const AuthForm = ({ type }: { type: FormType }) => {
       <div className="flex flex-col gap-6 p-10 bg-white rounded-xl shadow-sm">
         <div className="flex flex-row gap-2 justify-center items-center">
           <Image src="/logo.svg" alt="logo" height={32} width={38} />
-<<<<<<< HEAD
-          <h2 className="text-primary-100 text-2xl font-bold">PrepWise</h2>
-        </div>
-
-        <h3 className="text-xl font-semibold text-center">Practice job interviews with AI</h3>
-=======
           <h2 className="text-2xl font-bold">PrepWise</h2>
         </div>
 
         <h3 className="text-lg font-medium text-center text-slate-600">Practice job interviews with AI</h3>
->>>>>>> e6c6a49 (Fix file structure and auth action paths)
 
         <Form {...form}>
           <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-4">
@@ -146,28 +121,15 @@ const AuthForm = ({ type }: { type: FormType }) => {
               placeholder="Enter your password"
               type="password"
             />
-<<<<<<< HEAD
-
-            <Button className="btn w-full" type="submit" disabled={form.formState.isSubmitting}>
-              {form.formState.isSubmitting ? "Processing..." : isSignIn ? "Sign In" : "Create an Account"}
-=======
-            <Button className="w-full" type="submit" disabled={form.formState.isSubmitting}>
+            <Button className="w-full py-6 text-base font-semibold" type="submit" disabled={form.formState.isSubmitting}>
               {form.formState.isSubmitting ? "Processing..." : isSignIn ? "Sign In" : "Create Account"}
->>>>>>> e6c6a49 (Fix file structure and auth action paths)
             </Button>
           </form>
         </Form>
 
-        <p className="text-center text-sm">
+        <p className="text-center text-sm text-slate-500">
           {isSignIn ? "No account yet?" : "Have an account already?"}
-<<<<<<< HEAD
-          <Link
-            href={isSignIn ? "/sign-up" : "/sign-in"}
-            className="font-bold text-primary ml-1 hover:underline"
-          >
-=======
-          <Link href={isSignIn ? "/sign-up" : "/sign-in"} className="font-bold text-blue-600 ml-1">
->>>>>>> e6c6a49 (Fix file structure and auth action paths)
+          <Link href={isSignIn ? "/sign-up" : "/sign-in"} className="font-bold text-blue-600 ml-1 hover:underline">
             {isSignIn ? "Sign Up" : "Sign In"}
           </Link>
         </p>
